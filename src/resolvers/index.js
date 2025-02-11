@@ -10,9 +10,17 @@ const resolvers = {
     login: async (parent, args) => {
       const user = await User.findOne({ username: args.username });
       if (!user) {
+        console.log("User not found");
         throw new Error("User not found");
       }
+      console.log("User found:", user);
       const isMatch = await bcrypt.compare(args.password, user.password);
+      console.log(
+        "Password comparison:",
+        args.password,
+        user.password,
+        isMatch
+      );
       if (!isMatch) {
         throw new Error("Invalid credentials");
       }
