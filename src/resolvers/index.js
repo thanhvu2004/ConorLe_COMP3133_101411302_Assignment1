@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const Employee = require("../models/Employee");
 const User = require("../models/User");
 
-const SECRET_KEY = "your_secret_key";
+const SECRET_KEY = "l2exCMTKWB";
 
 const resolvers = {
   Query: {
